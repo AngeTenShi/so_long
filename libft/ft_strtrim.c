@@ -49,7 +49,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		i++;
 	while (ft_strchr(set, s1[j]) != NULL)
 		j--;
-	if (ft_strlen(s1) <= (size_t)i)
+	if (ft_strlen(s1) <= i)
 		return (ft_strdup(""));
 	str = ft_strndup((char *)s1, i, j - i);
 	if (!str)
