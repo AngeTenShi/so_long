@@ -6,7 +6,7 @@
 /*   By: anggonza <anggonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:49:40 by anggonza          #+#    #+#             */
-/*   Updated: 2022/01/12 15:27:17 by anggonza         ###   ########.fr       */
+/*   Updated: 2022/01/26 17:18:06 by anggonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,21 +48,16 @@ static int	ft_check_line_wall(char *map)
 int	ft_check_rectangular(char **map)
 {
 	int	i;
-	int	count_line1;
-	int	count_column1;
+	int	count_line;
 
 	i = 0;
-	count_column1 = ft_strlenn(map);
-	count_line1 = ft_strlen(map[0]);
-
-	while(i < ft_strlenn(map))
+	count_line = ft_strlen(map[0]);
+	while (i < ft_strlenn(map))
 	{
-		if (ft_strlen(map[i]) != count_line1)
+		if (ft_strlen(map[i]) != count_line)
 			return (-1);
 		i++;
 	}
-	if (ft_strlen(map[ft_strlenn(map)] - 1) != count_column1)
-		return (-1);
 	return (0);
 }
 

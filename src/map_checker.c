@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_checker_utils.c                                :+:      :+:    :+:   */
+/*   map_checker.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anggonza <anggonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:49:40 by anggonza          #+#    #+#             */
-/*   Updated: 2022/01/12 15:27:17 by anggonza         ###   ########.fr       */
+/*   Updated: 2022/01/26 17:25:22 by anggonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,9 @@ int	map_check(char *map_path)
 	if (fd < 0)
 		return (-1);
 	read_val = read(fd, buffer, 65535);
-	if (read_val < 0)
+	if (read_val < 0 || ft_check_doubleret(buffer) == -1)
 		return (-1);
 	map = ft_split(buffer, '\n');
-	for (int i = 0; i < ft_strlenn(map); i++)
-		printf("%s\n", map[i]);
 	if (ft_check_valid_component(map) == -1 || ft_check_wall(map) == -1
 		|| ft_check_rectangular(map) == -1 || ft_at_least_one(map) == -1)
 	{
@@ -54,5 +52,8 @@ int	map_check(char *map_path)
 
 int	main(void)
 {
-	printf("%d\n", map_check("maps/maps.ber"));
+	if (map_check("maps/lol.ber"))
+		printf("Error\n");
+	else
+		printf("Good map !\n");
 }

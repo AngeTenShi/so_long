@@ -4,7 +4,7 @@ FLAGS		=	-Wall -Wextra -Werror
 MLX			=	mlx/Makefile.gen
 LFT			=	libft/libft.a
 INC			=	-I ./inc -I ./libft -I ./mlx
-LIB			=	-L ./libft -lft -L ./mlx -lmlx -lXext -lX11 -lm -lz
+LIB			=	-L ./libft -lft -L ./mlx -lmlx 
 OBJ			=	$(patsubst src%, obj%, $(SRC:.c=.o))
 SRC			=	src/map_checker_utils.c \
 				src/map_checker_utils2.c \
