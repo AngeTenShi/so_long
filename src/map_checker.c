@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../solong.h"
+#include <stdio.h>
 
 void	free_map(char **map)
 {
@@ -37,7 +38,8 @@ int	map_check(char *map_path)
 	if (fd < 0)
 		return (-1);
 	read_val = read(fd, buffer, 65535);
-	if (read_val < 0 || ft_check_doubleret(buffer) == -1)
+	if (read_val < 0 || ft_check_doubleret(buffer) == -1
+		|| ft_extension_check(map_path) == -1)
 		return (-1);
 	map = ft_split(buffer, '\n');
 	if (ft_check_valid_component(map) == -1 || ft_check_wall(map) == -1
@@ -48,12 +50,4 @@ int	map_check(char *map_path)
 	}
 	free_map(map);
 	return (0);
-}
-
-int	main(void)
-{
-	if (map_check("maps/lol.ber"))
-		printf("Error\n");
-	else
-		printf("Good map !\n");
 }

@@ -25,5 +25,7 @@ int	ft_check_wall(char **map);
 int	ft_at_least_one(char **map);
 int	ft_strlenn(char **str);
 int	ft_check_doubleret(char *buffer);
+int	ft_extension_check(char *map_path);
+int	map_check(char *map_path);
 
 #endif

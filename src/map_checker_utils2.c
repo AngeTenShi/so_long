@@ -50,7 +50,7 @@ int	ft_at_least_one(char **map)
 	if (count_occ(map, 'P') != 1 || count_occ(map, 'E') < 1
 		|| count_occ(map, 'C') < 1)
 		return (-1);
-	return (0);
+	return (1);
 }
 
 int	ft_check_doubleret(char *buffer)
@@ -66,5 +66,5 @@ int	ft_check_doubleret(char *buffer)
 			return (-1);
 		i++;
 	}
-	return (0);
+	return (1);
 }

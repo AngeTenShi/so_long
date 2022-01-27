@@ -36,13 +36,16 @@ int	ft_check_valid_component(char **map)
 
 static int	ft_check_line_wall(char *map)
 {
-	while (*map)
+	int	i;
+
+	i = 0;
+	while (map[i])
 	{
-		if (*map != '1')
+		if (map[i] != '1')
 			return (-1);
-		map++;
+		i++;
 	}
-	return (0);
+	return (1);
 }
 
 int	ft_check_rectangular(char **map)
@@ -58,7 +61,7 @@ int	ft_check_rectangular(char **map)
 			return (-1);
 		i++;
 	}
-	return (0);
+	return (1);
 }
 
 int	ft_check_wall(char **map)
@@ -80,5 +83,16 @@ int	ft_check_wall(char **map)
 		}
 		i++;
 	}
+	return (1);
+}
+
+int	ft_extension_check(char *map_path)
+{
+	int	size;
+
+	size = ft_strlen(map_path) - 1;
+	if (!(map_path[size] == 'r' && map_path[size - 1] == 'e'
+			&& map_path[size - 2] == 'b' && map_path[size - 3] == '.'))
+		return (-1);
 	return (1);
 }
