@@ -20,10 +20,10 @@
 # define PLAYER "decor/player.xpm"
 
 # include <fcntl.h>
-# include <mlx.h>
+# include "../../mlx/mlx.h"
 # include <unistd.h>
 # include <stdio.h>
-# include "libft/libft.h"
+# include "../../libft/libft.h"
 
 typedef struct	s_img {
 	void	*img;
@@ -44,16 +44,19 @@ typedef struct s_assets {
 }   t_assets;
 
 typedef struct s_maps {
-	int width;
-	int height;
+	char    **map;
+	char    *map_path;
+	int     width;
+	int     height;
 }   t_maps;
 
 typedef struct s_all_vars
 {
 	void    *mlx;
 	void    *window;
-	int     width_win;
-	int     height_win;
+	int     win_width;
+	int     win_height;
+	t_maps  map;
 	t_assets assets;
 }   t_all_vars;
 
@@ -68,4 +71,7 @@ int	    map_check(char *map_path);
 void	free_map(char **map);
 void    ft_init_window(t_all_vars *vars);
 void    ft_init_assets(t_all_vars *vars);
+void    ft_init_map(t_all_vars *vars);
+void    ft_fill_map(t_all_vars *vars);
+
 #endif

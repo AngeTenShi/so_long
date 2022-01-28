@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../solong.h"
+#include "include/solong.h"
 
 void	free_map(char **map)
 {
@@ -26,7 +26,7 @@ void	free_map(char **map)
 	map = NULL;
 }
 
-int	map_check(char *map_path)
+int map_check(char *map_path)
 {
 	int		read_val;
 	int		fd;

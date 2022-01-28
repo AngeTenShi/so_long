@@ -11,6 +11,7 @@ SRC			=	src/map_checker_utils.c \
 				src/map_checker.c \
 				src/init.c \
 				src/main.c \
+				src/ft_generate.c \
 
 all:		$(MLX) $(LFT) obj $(NAME)
 

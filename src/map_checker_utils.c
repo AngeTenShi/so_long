@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../solong.h"
+#include "include/solong.h"
 
 int	ft_check_valid_component(char **map)
 {
