@@ -6,7 +6,7 @@
 /*   By: anggonza <anggonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:49:40 by anggonza          #+#    #+#             */
-/*   Updated: 2022/01/26 17:25:22 by anggonza         ###   ########.fr       */
+/*   Updated: 2022/02/02 17:39:22 by anggonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	free_map(char **map)
 	map = NULL;
 }
 
-int map_check(char *map_path)
+int	map_check(char *map_path)
 {
 	int		read_val;
 	int		fd;
@@ -35,7 +35,10 @@ int map_check(char *map_path)
 
 	fd = open(map_path, O_RDONLY);
 	if (fd < 0)
+	{
+		ft_putendl_fd("The file doesn't exist. This may be a folder", 2);
 		return (-1);
+	}
 	read_val = read(fd, buffer, 65535);
 	if (read_val < 0 || ft_check_doubleret(buffer) == -1
 		|| ft_extension_check(map_path) == -1)
@@ -44,6 +47,7 @@ int map_check(char *map_path)
 	if (ft_check_valid_component(map) == -1 || ft_check_wall(map) == -1
 		|| ft_check_rectangular(map) == -1 || ft_at_least_one(map) == -1)
 	{
+		ft_putendl_fd("Map not valid", 2);
 		free_map(map);
 		return (-1);
 	}

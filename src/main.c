@@ -12,30 +12,31 @@
 
 #include "include/solong.h"
 
-int ft_leave_program(t_all_vars *vars, int status)
+int	ft_leave_program(t_all_vars *vars, int status)
 {
 	free_map(vars->map.map);
+	mlx_destroy_window(vars->mlx, vars->window);
 	return (status);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-    t_all_vars  vars;
+	t_all_vars	vars;
 
-    if (ac != 2)
-    {
-        ft_putendl_fd("Error \nUsage : ./solong map_path",STDERR_FILENO);
-        return (EXIT_FAILURE);
-    }
-    else if (map_check(av[1]) == -1) {
-        ft_putendl_fd("Error \nMap not valid", STDERR_FILENO);
-        return (EXIT_FAILURE);
-    }
+	if (ac != 2)
+	{
+		ft_putendl_fd("Error \nUsage : ./solong map_path", STDERR_FILENO);
+		return (EXIT_FAILURE);
+	}
+	else if (map_check(av[1]) == -1)
+	{
+		ft_putendl_fd("Error", 2);
+		return (EXIT_FAILURE);
+	}
 	vars.map.map_path = av[1];
 	ft_init_map(&vars);
-    ft_init_window(&vars);
+	ft_init_window(&vars);
 	ft_fill_map(&vars);
 	mlx_loop(vars.mlx);
 	ft_leave_program(&vars, EXIT_SUCCESS);
 }
-

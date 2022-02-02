@@ -6,7 +6,7 @@
 /*   By: anggonza <anggonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:50:53 by anggonza          #+#    #+#             */
-/*   Updated: 2022/01/26 16:57:37 by anggonza         ###   ########.fr       */
+/*   Updated: 2022/02/02 18:00:41 by anggonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,53 +25,55 @@
 # include <stdio.h>
 # include "../../libft/libft.h"
 
-typedef struct	s_img {
+typedef struct s_img {
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-}   t_img;
+}	t_img;
 
 typedef struct s_assets {
-	int     width;
-	int     height;
-	void    *wall;
-	void    *player;
-	void    *exit;
-	void    *collectible;
-	void    *empty_space;
-}   t_assets;
+	int		width;
+	int		height;
+	void	*wall;
+	void	*player;
+	void	*exit;
+	void	*collectible;
+	void	*empty_space;
+}	t_assets;
 
 typedef struct s_maps {
-	char    **map;
-	char    *map_path;
-	int     width;
-	int     height;
-}   t_maps;
+	char	**map;
+	char	*map_path;
+	int		width;
+	int		height;
+}	t_maps;
 
 typedef struct s_all_vars
 {
-	void    *mlx;
-	void    *window;
-	int     win_width;
-	int     win_height;
-	t_maps  map;
-	t_assets assets;
-}   t_all_vars;
+	void		*mlx;
+	void		*window;
+	int			win_width;
+	int			win_height;
+	int			moves;
+	t_maps		map;
+	t_assets	assets;
+}	t_all_vars;
 
-int	    ft_check_valid_component(char **map);
-int	    ft_check_rectangular(char **map);
-int	    ft_check_wall(char **map);
-int	    ft_at_least_one(char **map);
-int	    ft_strlenn(char **str);
-int	    ft_check_doubleret(char *buffer);
-int	    ft_extension_check(char *map_path);
-int	    map_check(char *map_path);
+int		ft_check_valid_component(char **map);
+int		ft_check_rectangular(char **map);
+int		ft_check_wall(char **map);
+int		ft_at_least_one(char **map);
+int		ft_strlenn(char **str);
+int		ft_check_doubleret(char *buffer);
+int		ft_extension_check(char *map_path);
+int		map_check(char *map_path);
 void	free_map(char **map);
-void    ft_init_window(t_all_vars *vars);
-void    ft_init_assets(t_all_vars *vars);
-void    ft_init_map(t_all_vars *vars);
-void    ft_fill_map(t_all_vars *vars);
+void	ft_init_window(t_all_vars *vars);
+void	ft_init_assets(t_all_vars *vars);
+void	ft_init_map(t_all_vars *vars);
+void	ft_fill_map(t_all_vars *vars);
+int		ft_leave_program(t_all_vars *vars, int status);
 
 #endif

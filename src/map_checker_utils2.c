@@ -6,7 +6,7 @@
 /*   By: anggonza <anggonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:49:40 by anggonza          #+#    #+#             */
-/*   Updated: 2022/01/26 16:57:02 by anggonza         ###   ########.fr       */
+/*   Updated: 2022/02/02 17:40:37 by anggonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,10 @@ int	ft_check_doubleret(char *buffer)
 	while (i < ft_strlen(buffer))
 	{
 		if (buffer[i - 1] == '\n' && buffer[i] == '\n')
+		{
+			ft_putendl_fd("Jumping a line in the file\n Map not valid", 2);
 			return (-1);
+		}
 		i++;
 	}
 	return (1);

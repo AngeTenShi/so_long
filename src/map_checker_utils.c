@@ -6,7 +6,7 @@
 /*   By: anggonza <anggonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:49:40 by anggonza          #+#    #+#             */
-/*   Updated: 2022/01/26 17:18:06 by anggonza         ###   ########.fr       */
+/*   Updated: 2022/02/02 17:39:36 by anggonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,9 @@ int	ft_extension_check(char *map_path)
 	size = ft_strlen(map_path) - 1;
 	if (!(map_path[size] == 'r' && map_path[size - 1] == 'e'
 			&& map_path[size - 2] == 'b' && map_path[size - 3] == '.'))
+	{
+		ft_putendl_fd("It's not a .ber", 2);
 		return (-1);
+	}
 	return (1);
 }
