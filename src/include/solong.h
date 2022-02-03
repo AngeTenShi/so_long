@@ -6,7 +6,7 @@
 /*   By: anggonza <anggonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:50:53 by anggonza          #+#    #+#             */
-/*   Updated: 2022/02/02 18:00:41 by anggonza         ###   ########.fr       */
+/*   Updated: 2022/02/03 16:47:43 by anggonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,10 @@ typedef struct s_all_vars
 	int			win_width;
 	int			win_height;
 	int			moves;
+	int			collected;
+	int			to_collect;
+	int			x;
+	int			y;
 	t_maps		map;
 	t_assets	assets;
 }	t_all_vars;
@@ -74,6 +78,10 @@ void	ft_init_window(t_all_vars *vars);
 void	ft_init_assets(t_all_vars *vars);
 void	ft_init_map(t_all_vars *vars);
 void	ft_fill_map(t_all_vars *vars);
-int		ft_leave_program(t_all_vars *vars, int status);
+int		ft_leave_program(t_all_vars *vars);
+int		ft_check_move(t_all_vars *vars, char type, int x, int y);
+void	ft_init_player(t_all_vars *vars);
+void	ft_move(t_all_vars *vars, char type);
+int		count_occ(char **map, char letter);
 
 #endif

@@ -6,11 +6,34 @@
 /*   By: anggonza <anggonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 16:55:57 by anggonza          #+#    #+#             */
-/*   Updated: 2022/02/02 18:24:31 by anggonza         ###   ########.fr       */
+/*   Updated: 2022/02/03 16:23:14 by anggonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/solong.h"
+#include "include/keys.h"
+#include "include/X.h"
+
+int	keypress(int keycode, t_all_vars *vars)
+{
+	if (keycode == ESC)
+		ft_leave_program(vars);
+	if (keycode == KEY_W)
+		ft_move(vars, 'u');
+	if (keycode == KEY_S)
+		ft_move(vars, 'd');
+	if (keycode == KEY_A)
+		ft_move(vars, 'l');
+	if (keycode == KEY_D)
+		ft_move(vars, 'r');
+	return (0);
+}
+
+int	destroy(t_all_vars *params)
+{
+	ft_leave_program(params);
+	return (0);
+}
 
 void	ft_init_assets(t_all_vars *v)
 {
@@ -32,6 +55,8 @@ void	ft_init_window(t_all_vars *vars)
 	vars->window = mlx_new_window(vars->mlx, vars->win_width, vars->win_height,
 			"so_long");
 	ft_init_assets(vars);
+	mlx_hook(vars->window, KeyPress, KeyPress, &keypress, vars);
+	mlx_hook(vars->window, DestroyNotify, DestroyAll, &destroy, vars);
 }
 
 void	ft_init_map(t_all_vars *vars)
@@ -46,4 +71,8 @@ void	ft_init_map(t_all_vars *vars)
 	vars->map.height = ft_strlenn(vars->map.map);
 	vars->win_width = vars->map.width * 32;
 	vars->win_height = vars->map.height * 32;
+	vars->moves = 0;
+	vars->collected = 0;
+	vars->to_collect = count_occ(vars->map.map, 'C');
+	ft_init_player(vars);
 }

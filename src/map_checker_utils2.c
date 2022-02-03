@@ -6,7 +6,7 @@
 /*   By: anggonza <anggonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:49:40 by anggonza          #+#    #+#             */
-/*   Updated: 2022/02/02 17:40:37 by anggonza         ###   ########.fr       */
+/*   Updated: 2022/02/03 16:06:27 by anggonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,32 @@ int	ft_strlenn(char **str)
 	return (i);
 }
 
-static int	count_occ(char **map, char letter)
+void	ft_init_player(t_all_vars *vars)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (i < ft_strlenn(vars->map.map))
+	{
+		while (j < ft_strlen(vars->map.map[i]))
+		{
+			if (vars->map.map[i][j] == 'P')
+			{
+				vars->x = j;
+				vars->y = i;
+				printf("x : %d\n y : %d\n", vars->x, vars->y);
+				break ;
+			}
+			j++;
+		}
+		j = 0;
+		i++;
+	}
+}
+
+int	count_occ(char **map, char letter)
 {
 	int	count;
 	int	i;

@@ -4,13 +4,14 @@ FLAGS		=	-Wall -Wextra -Werror
 MLX			=	mlx/Makefile
 LFT			=	libft/libft.a
 INC			=	-I ./inc -I ./libft -I ./mlx
-LIB			=	-L ./libft -lft -L ./mlx -lmlx -lXext -lX11 -lm -lz
+LIB			=	-L ./libft -lft -Lmlx -lmlx -framework OpenGL -framework AppKit 
 OBJ			=	$(patsubst src%, obj%, $(SRC:.c=.o))
 SRC			=	src/map_checker_utils.c \
 				src/map_checker_utils2.c \
 				src/map_checker.c \
 				src/init.c \
 				src/main.c \
+				src/ft_move.c \
 				src/ft_generate.c \
 
 all:		$(MLX) $(LFT) obj $(NAME)

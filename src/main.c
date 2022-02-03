@@ -12,11 +12,11 @@
 
 #include "include/solong.h"
 
-int	ft_leave_program(t_all_vars *vars, int status)
+int	ft_leave_program(t_all_vars *vars)
 {
 	free_map(vars->map.map);
 	mlx_destroy_window(vars->mlx, vars->window);
-	return (status);
+	exit(0);
 }
 
 int	main(int ac, char **av)
@@ -38,5 +38,4 @@ int	main(int ac, char **av)
 	ft_init_window(&vars);
 	ft_fill_map(&vars);
 	mlx_loop(vars.mlx);
-	ft_leave_program(&vars, EXIT_SUCCESS);
 }
