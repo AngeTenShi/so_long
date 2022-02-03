@@ -6,7 +6,7 @@
 /*   By: anggonza <anggonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 14:46:57 by anggonza          #+#    #+#             */
-/*   Updated: 2022/02/03 16:57:57 by anggonza         ###   ########.fr       */
+/*   Updated: 2022/02/03 17:10:55 by anggonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	ft_check_move(t_all_vars *v, char type, int x, int y)
 {
-	printf("%d: to collect, %d : collected\n", v->to_collect, v->collected);
 	if (type == 'u')
 		if (v->map.map[y - 1][x] == '1' ||
 			(v->to_collect != v->collected && v->map.map[y - 1][x] == 'E'))

@@ -14,7 +14,7 @@ SRC			=	src/map_checker_utils.c \
 				src/ft_move.c \
 				src/ft_generate.c \
 
-all:		$(MLX) $(LFT) obj $(NAME)
+all:		$(LFT) obj $(NAME)
 
 $(NAME):	$(OBJ)
 			$(CC) $(FLAGS) -fsanitize=address -o $@ $^ $(LIB)
