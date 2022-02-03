@@ -6,25 +6,24 @@
 /*   By: anggonza <anggonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 16:55:57 by anggonza          #+#    #+#             */
-/*   Updated: 2022/02/03 16:23:14 by anggonza         ###   ########.fr       */
+/*   Updated: 2022/02/03 17:05:26 by anggonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/solong.h"
 #include "include/keys.h"
-#include "include/X.h"
 
 int	keypress(int keycode, t_all_vars *vars)
 {
 	if (keycode == ESC)
 		ft_leave_program(vars);
-	if (keycode == KEY_W)
+	if (keycode == KEY_W || keycode == KEY_UP)
 		ft_move(vars, 'u');
-	if (keycode == KEY_S)
+	if (keycode == KEY_S || keycode == KEY_DOWN)
 		ft_move(vars, 'd');
-	if (keycode == KEY_A)
+	if (keycode == KEY_A || keycode == KEY_LEFT)
 		ft_move(vars, 'l');
-	if (keycode == KEY_D)
+	if (keycode == KEY_D || keycode == KEY_RIGHT)
 		ft_move(vars, 'r');
 	return (0);
 }
@@ -55,8 +54,8 @@ void	ft_init_window(t_all_vars *vars)
 	vars->window = mlx_new_window(vars->mlx, vars->win_width, vars->win_height,
 			"so_long");
 	ft_init_assets(vars);
-	mlx_hook(vars->window, KeyPress, KeyPress, &keypress, vars);
-	mlx_hook(vars->window, DestroyNotify, DestroyAll, &destroy, vars);
+	mlx_hook(vars->window, 2, 1L << 0, &keypress, vars);
+	mlx_hook(vars->window, 17, 0, &destroy, vars);
 }
 
 void	ft_init_map(t_all_vars *vars)
