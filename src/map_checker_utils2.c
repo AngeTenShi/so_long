@@ -37,7 +37,6 @@ void	ft_init_player(t_all_vars *vars)
 			{
 				vars->x = j;
 				vars->y = i;
-				printf("x : %d\n y : %d\n", vars->x, vars->y);
 				break ;
 			}
 			j++;
