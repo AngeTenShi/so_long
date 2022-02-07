@@ -6,7 +6,7 @@
 /*   By: anggonza <anggonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:50:53 by anggonza          #+#    #+#             */
-/*   Updated: 2022/02/03 16:47:43 by anggonza         ###   ########.fr       */
+/*   Updated: 2022/02/07 16:36:40 by anggonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,6 @@
 # include <unistd.h>
 # include <stdio.h>
 # include "../../libft/libft.h"
-
-typedef struct s_img {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}	t_img;
 
 typedef struct s_assets {
 	int		width;
