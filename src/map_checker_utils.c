@@ -6,7 +6,7 @@
 /*   By: anggonza <anggonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:49:40 by anggonza          #+#    #+#             */
-/*   Updated: 2022/02/02 17:39:36 by anggonza         ###   ########.fr       */
+/*   Updated: 2022/02/24 14:13:33 by anggonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ int	ft_check_rectangular(char **map)
 	int	count_line;
 
 	i = 0;
+	if (!map[0])
+		return (0);
 	count_line = ft_strlen(map[0]);
 	while (i < ft_strlenn(map))
 	{

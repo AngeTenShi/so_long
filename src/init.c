@@ -6,16 +6,15 @@
 /*   By: anggonza <anggonza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 16:55:57 by anggonza          #+#    #+#             */
-/*   Updated: 2022/02/03 17:05:26 by anggonza         ###   ########.fr       */
+/*   Updated: 2022/04/12 17:37:44 by anggonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/solong.h"
-#include "include/keys.h"
 
 int	keypress(int keycode, t_all_vars *vars)
 {
-	if (keycode == ESC)
+	if (keycode == KEY_ESC)
 		ft_leave_program(vars);
 	if (keycode == KEY_W || keycode == KEY_UP)
 		ft_move(vars, 'u');
